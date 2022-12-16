@@ -21,3 +21,8 @@ docker run -it monorepo-consumer sh
 cd node_modules
 ls
 ```
+
+# Referências
+https://daveiscoding.com/nodejs-typescript-monorepo-via-npm-workspaces
+
+https://raulgf92-software.medium.com/npm-workspaces-microservices-6a13454937ab
