@@ -1,3 +1,6 @@
+# Ideia geral
+![image](https://user-images.githubusercontent.com/74191924/208155133-8930e160-8626-4ee1-a897-b4cd6e030a91.png)
+
 # Criar imagem web
 ```sh
 docker build -t monorepo-web . -f Dockerfile-web
