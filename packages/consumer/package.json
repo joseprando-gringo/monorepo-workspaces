@@ -1,0 +1,16 @@
+{
+  "name": "@monorepo/consumer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@monorepo/core": "^1.0.0",
+    "axios": "^1.2.1"
+  }
+}

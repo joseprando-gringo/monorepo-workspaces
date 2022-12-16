@@ -1,0 +1,20 @@
+FROM node:16.14.2-alpine3.14 as ts-transpile
+WORKDIR /app
+COPY tsconfig.json tsconfig.json
+COPY tsconfig.base.json tsconfig.base.json
+COPY packages packages
+RUN npm install -g typescript@4.9.4
+RUN tsc --build
+
+FROM node:16.14.2-alpine3.14 as dependencies
+WORKDIR /app
+COPY --from=ts-transpile /app/packages/core packages/core
+COPY --from=ts-transpile /app/packages/consumer packages/consumer
+COPY package.json package.json
+COPY package-lock.json package-lock.json
+RUN npm run install-all
+
+FROM node:16.14.2-alpine3.14 as runner
+WORKDIR /app
+COPY --from=dependencies /app/ ./
+CMD ["node", "/app/packages/consumer/dist/index.js"]
